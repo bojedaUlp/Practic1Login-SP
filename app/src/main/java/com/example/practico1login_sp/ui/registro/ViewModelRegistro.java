@@ -40,7 +40,8 @@ public class ViewModelRegistro extends AndroidViewModel {
 
     public void guardarUsuario(Usuario u){
         ApiClient.guardar(context,u);
-        Intent i = new Intent(context, MainActivity.class);
+        Intent i = new Intent(context.getApplicationContext(), MainActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(i);
     }
 

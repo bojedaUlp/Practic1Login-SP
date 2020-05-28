@@ -26,10 +26,9 @@ public class MainRegistroActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-        inicializar();
+        vm=ViewModelProviders.of(this).get(ViewModelRegistro.class);
         Intent i = getIntent();
         vm.verificar(i.getIntExtra("bandera",0));
-        vm=ViewModelProviders.of(this).get(ViewModelRegistro.class);
         vm.getUsuario().observe(this, new Observer<Usuario>() {
             @Override
             public void onChanged(Usuario usuario) {
@@ -41,7 +40,7 @@ public class MainRegistroActivity extends AppCompatActivity {
 
             }
         });
-
+        inicializar();
     }
 
     private void inicializar(){
